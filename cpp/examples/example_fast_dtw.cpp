@@ -45,6 +45,14 @@ void testFastDTW()
     TimeWarpInfo<double> info =  FAST::getWarpInfoBetween(tsI,tsJ,EuclideanDistance());
     printf("Warp Distance by DTW:%lf\n",info.getDistance());
     info.getPath()->print(std::cout);
+    auto path = info.getPath();
+    double cost = 0.0;
+    for(int i=0;i<path->_tsIindexes.size();i++){
+        long long p = path->_tsIindexes[i], q = path->_tsJindexes[i];
+        printf("(%lld,%lld) --> ", p, q);
+        cost += abs(sample1[p]-sample2[q]);
+    }
+    printf("\n cost = %f\n", cost);
 }
 
 
@@ -62,7 +70,7 @@ int main(int argc , char ** argv)
     time_Series_1.push_back(2);
     time_Series_1.push_back(1);
     time_Series_1.push_back(1);
-    time_Series_1.push_back(1);
+    time_Series_1.push_back(10);
     time_Series_1.push_back(0);
     time_Series_1.push_back(0);
     time_Series_1.push_back(0);

@@ -18,6 +18,7 @@ FD_NS_START
 using namespace std;
 class WarpPath
 {
+public:
     vector<JInt> _tsIindexes;
     vector<JInt> _tsJindexes;
     
