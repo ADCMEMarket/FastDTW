@@ -53,7 +53,7 @@ link_directories(${TF_LIB})
 
 include_directories(cpp/include)
 set(SOURCES cpp/src/ColMajorCell.cpp cpp/src/FastDTW.cpp cpp/src/SearchWindow.cpp cpp/src/WarpPath.cpp)
-add_library(fast_dtw ${SOURCES} )
-
+add_library(fast_dtw SHARED ${SOURCES} )
+set_property(TARGET fast_dtw PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_property(TARGET Dtw PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(Dtw fast_dtw ${TF_LIB_FILE})
