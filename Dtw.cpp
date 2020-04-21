@@ -133,7 +133,7 @@ public:
     
     TensorShape grad_s_shape(s_shape);
     TensorShape grad_t_shape(t_shape);
-    TeensorShape grad_fast_shape(fast_shape);
+    TensorShape grad_fast_shape(fast_shape);
 
     int n1 = s_shape.dim_size(0), n2 = t_shape.dim_size(0), np = p_shape.dim_size(0);
             
